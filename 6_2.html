@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global attributes</title>
+    <style>
+        h2 {
+            margin-top: 80px;
+        }
+        button{
+            width: 100px;
+            height: 40px;
+            background: rgb(170, 109, 109);
+            border: 2px solid rgb(109, 25, 25);
+            border-radius: 10px;
+        } 
+        /* for tabindex, to make the element in focus visible: */
+        :focus {
+            outline: 2px solid orange;
+            box-shadow: 0 0 30px red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Globális attributumok</h1>
+
+    <h2>accesskey</h2>
+    <p>press ALT + s to open the link below</p>
+    <a href="https://pixabay.com/photos/tree-sunset-clouds-sky-silhouette-736885/" accesskey="s" target="_blank">Link with accesskey</a>
+
+    <h2>data-...</h2>
+    <p data-example="test">This paragraph has a data- attr.</p>
+    <p data-example2="test2">This is the value of the data-example attr in the previous paragraph: </p>
+
+    <h2>dir</h2>
+    <p dir="ltr">A paragraph with dir.</p>
+    <p dir="rtl">A paragraph with dir.</p>
+
+    <h2>draggable</h2>
+    <div style="display: flex; width: 50%; justify-content: space-between;">
+        <div
+            id="drag1"
+            style="width: 100px;
+                height: 100px;
+                background-color: red;
+                opacity: 0.5;"
+            draggable="true"
+            ondragstart="drag(event)"
+        >
+        </div>
+        <div
+            id="drag2"
+            style="width: 100px;
+                height: 100px;
+                background-color: yellow;"
+            draggable="true"
+            ondragstart="drag(event)"
+        >
+        </div>
+    </div>
+
+    <div style="display: flex; width: 50%; justify-content: space-between;">
+        <div
+            id="div1"
+            style="width: 100px;
+                height: 100px;
+                border:10px solid green;
+                margin: 10px 0 0 0;"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+        >
+        </div>
+        <div
+            id="div2"
+            style="width: 100px;
+                height: 100px;
+                border:10px solid purple;
+                margin: 10px 0 0 0;"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+        >
+        </div>
+        <div
+            id="div3"
+            style="width: 100px;
+                height: 100px;
+                border:10px solid blue;
+                margin: 10px 0 0 0;"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+        >
+        </div>
+    </div>
+
+    <h2>contenteditable, lang, spellcheck</h2>
+    <p lang="hu" contenteditable="true" spellcheck="true">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora ad, ab eum ea, repellendus minima magni laboriosam est aliquam molestias aspernatur, fugiat qui hic! Est cum minus laborum at incidunt!</p>
+    <input lang="hu" type="text" spellcheck="true">
+    <p>HTML lang attribute values: <a href="https://www.w3schools.com/tags/ref_language_codes.asp">HERE</a> </p>
+
+    <h2>hidden</h2>
+    <h4>(with input type="file")</h4>
+    <input type="file" name="" id="" hidden>
+    <button>Feltöltés</button>
+    <div id="showAjaxUpload"></div>
+
+    <h2>tabindex</h2>
+    <a href="" tabindex="3">Link</a>
+    <textarea name="" id="" cols="30" rows="10" tabindex="2"></textarea>
+    <input type="text" tabindex="1">
+    <button>Gomb</button>
+
+    <h2>title</h2>
+    <p title="Hey, I'm a TITLE!">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+
+
+    <script>
+        //data-
+        document.querySelector('[data-example]').style.color = "blue";
+        let a = document.querySelector('[data-example]').dataset.example;
+        document.querySelector('[data-example2]').innerText += " " + a;
+
+        //draggable
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+            console.log(ev);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            let data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+        // use of hidden property in file uploading: 
+        document.querySelector('#showAjaxUpload').innerText = "";
+
+        document.querySelector('button').onclick = () => {
+            document.querySelector('[type="file"]').click()
+        }
+
+        document.querySelector('[type="file"]').onchange = () => {
+            document.querySelector('#showAjaxUpload').innerText = "Ajax uploading ..."
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html 6.1</title>
+    <base href="https://cdn.pixabay.com/photo/">
+</head>
+<body>
+    <h3>navigator</h3>
+    <p>with JS:</p>
+    <div></div>
+    <div>You can look at the console too.</div>
+    <p>with php: $_SERVER["HTTP_USER_AGENT"]</p>
+
+    <h2>base tag</h2>
+    <h3>base (with link and img)</h3>
+    <a href="2014/02/27/16/10/flowers-276014_960_720.jpg" target="_blank">Meadow</a>
+    <img src="2015/12/01/20/28/road-1072823_960_720.jpg" alt="forest" style="width: 200px;">
+
+    <script>
+        document.querySelector("p+div").innerHTML = navigator;
+        console.log(navigator);
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event handlers</title>
+    <style>
+        #msgParent {
+            position: fixed;
+            width: 300px;
+            height: 50px;
+            top: calc(50% - 25px);
+            left: calc(50% - 150px);
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body onbeforeprint="onBeforePrintFunc()" onbeforeunload="return onBeforeUnloadFunc()">
+    <h1>Esemény kezelők</h1>
+
+    <div id="msgParent">
+        <div id="msg">Esemény üzenet: </div>
+        <button id="btn0">del</button>
+    </div>
+
+    <h2>onclick</h2>
+    <button id="btn1">click me</button>
+
+    <h2>ondbclick</h2>
+    <p ondblclick="onDBclickFunc()">double click on this paragraph</p>
+
+    <h2>onmouse... events</h2>
+    <h4>on this paragraph: </h4>
+    <p id="onmouse" style="width: 300px; border: 2px solid black;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut repudiandae nostrum asperiores similique nam. Aperiam sint dolorum nulla quo eum, iste fuga illum similique animi cum soluta eos non. Magni.</p>
+
+    <h2>onkey events</h2>
+    <p>Írj be egy betűt! (onkeyup)</p>
+    <input type="text" onkeyup="onkeyupFunc()">
+    <p>Írj be egy "s" betűt! (onkeydown)</p>
+    <input type="text" id="onKeyDown">
+
+    <h2>window events</h2>
+    <p>onbeforeprint (click the button below or push CTRL + P)</p>
+    <button onclick="window.print()">Print this page</button>
+    <p>onbeforeunload</p>
+    <p>Try to navigate somewhere else: <a href="google.com">google</a> </p>
+    <p>more detailed example: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event">explanation</a></p>
+
+    <script>
+        msg = document.querySelector('#msg')
+        baseMsg = "Esemény üzenet: "
+        
+        document.querySelector('#btn0').onclick = () => {
+            msg.innerText = baseMsg
+        }
+
+        document.querySelector('#btn1').onclick = () => {
+            msg.innerText = baseMsg + "onclick esemény"
+        }
+
+        function onDBclickFunc() {
+            msg.innerText = baseMsg + "onDBclcik"
+        }
+
+        document.querySelector('#onmouse').onmousedown = () => {
+            msg.innerText = baseMsg + "onmousedown"
+        }
+
+        document.querySelector('#onmouse').onmousemove = () => {
+            msg.innerText = baseMsg + "onmousemove"
+        } 
+        
+        document.querySelector('#onmouse').onmouseout = () => {
+            msg.innerText = baseMsg + "onmouseout"
+        }
+
+        document.querySelector('#onmouse').onmouseup = () => {
+            msg.innerText = baseMsg + "onmouseup"
+        }
+
+        function onkeyupFunc() {
+            msg.innerText = baseMsg + "Beírtál egy betűt."
+        }
+
+        const onKeyDownInp = document.querySelector('#onKeyDown')
+
+        onKeyDownInp.addEventListener('keydown', onkeyDownFunc )
+        function onkeyDownFunc(e) {
+            //console.log(e);
+            if(e.key === "s") {
+                msg.innerText = baseMsg + e.key
+            } else {
+                msg.innerText = baseMsg + "Nem 's'-et nyomtál le!"
+            }
+        }
+
+        function onBeforePrintFunc() {
+            alert("You are going to print this page");
+        }
+
+        function onBeforeUnloadFunc() {
+            return "Some message ..."
+        }
+
+    </script>
+</body>
+</html>
