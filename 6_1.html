@@ -4,8 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>html 6.1</title>
+    <title>html elements</title>
     <base href="https://cdn.pixabay.com/photo/">
+    <style>
+        table, th, td {
+            border-bottom: 1px solid brown;
+            border-collapse: collapse;
+        }
+        .simple table, th, td {
+            border: 1px solid brown;
+        }
+
+        .coloring th:nth-child(odd),.coloring td:nth-child(odd) {
+            background-color: aqua;
+        }
+        .coloring th:nth-child(even),.coloring td:nth-child(even) {
+            background-color: lightcoral;
+        }
+        tr:hover {
+            background-color: goldenrod;
+        }
+        ol:last-of-type>li::marker, ul>li::marker {
+            color: red;
+            font-size: 30px;
+        }
+    </style>
 </head>
 <body>
     <h3>navigator</h3>
@@ -14,10 +37,182 @@
     <div>You can look at the console too.</div>
     <p>with php: $_SERVER["HTTP_USER_AGENT"]</p>
 
-    <h2>base tag</h2>
-    <h3>base (with link and img)</h3>
+    <h1>HTML elements</h1>
+    <h3>base</h3>
     <a href="2014/02/27/16/10/flowers-276014_960_720.jpg" target="_blank">Meadow</a>
     <img src="2015/12/01/20/28/road-1072823_960_720.jpg" alt="forest" style="width: 200px;">
+
+    <h3>picture</h3>
+    <p>breakponts: 650px, 465px</p>
+    <p>All the pics defined in the source tags appears in the img element. So if you want to style the pics YOU HAVE TO STYLE ONLY THE img ELEMENT !!!!</p>
+    <picture>
+        <source media="(min-width: 650px)" srcset="https://picsum.photos/id/237/200/300">
+        <source media="(min-width: 465px)" srcset="https://picsum.photos/id/238/200/300">
+        <img src="https://picsum.photos/id/239/200/300" alt="">
+    </picture>
+
+    <h3>table</h3>
+    <p>css properties for tables: width, border, background-color, visibility</p>
+    <p>table width, height, cellpadding, colspan & td: width, td: valign="top"</p>
+    <table class="simple" width="100%" height="300px" cellpadding="5">
+        <tr>
+            <th>1. cím</th>
+            <th>2. cím</th>
+        </tr>
+        <tr>
+            <td width="60%">1</td>
+            <td valign="top">2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+    <p>colspan, rowspan</p>
+    <table class="simple" width="100%" cellpadding="20">
+        <tr>
+            <th>1. cím</th>
+            <th>2. cím</th>
+            <th>3. cím</th>
+        </tr>
+        <tr>
+            <td colspan="2">1, 2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td rowspan="2">6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+    </table>
+    <p>coloring with css</p>
+    <table class="coloring" width="100%" cellpadding="20">
+        <tr>
+            <th>1. cím</th>
+            <th>2. cím</th>
+            <th>3. cím</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+    <p>colgroup</p>
+    <table id="colgroup" width="100%" cellpadding="20">
+        <colgroup>
+        <!-- <col span="1">  if you dont want to style the first column -->
+            <col span="1" style="background-color: violet;">
+            <col span="2" style="background-color: blueviolet;">
+        </colgroup>
+        <tr>
+            <th>1. cím</th>
+            <th>2. cím</th>
+            <th>3. cím</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+    <p>visibility, cellspacing, border-collapse: separate</p>
+    <table id="colgroup" style="border-collapse: separate;" width="100%" cellpadding="20" cellspacing="20">
+        <colgroup>
+            <col span="1" style="visibility: collapse;">
+            <col span="2" style="background-color: blueviolet;">
+        </colgroup>
+        <tr>
+            <th>1. cím</th>
+            <th>2. cím</th>
+            <th>3. cím</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+
+    <h3>lists</h3>
+    <p>unordered</p>
+    <p>ordered, type="a" OR: 1, a, i, A, I  start="100" or "100" + reversed</p>
+    <p>description list (dt-description title, dd-description description):</p>
+    <dl>
+        <dt>Autó</dt>
+        <dd>négy kerekű jármű</dd>
+        <dt>Labga</dt>
+        <dd>gömb alakú rugalmas játék</dd>
+    </dl>
+    <p>list in list</p>
+    <ol type="i">
+        <li>a</li>
+        <li>ds</li>
+        <li>f</li>
+        <li>1</li>
+        <li>
+            <ol style="list-style-type: decimal-leading-zero">
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ol>
+        </li>
+        <li>ds</li>
+        <li>f</li>
+        <li>1</li>
+    </ol>
+    <p>marker for eg. lists</p>
+    <ol>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ol>
+    <ul type="square">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
+    <h3>paths</h3>
+    <p>relative: ./ in the same folder, ../ one forlder above, ../../ two folder above ....., or from the root: /</p>
+    <p>absolute: http://....../p>
 
     <script>
         document.querySelector("p+div").innerHTML = navigator;

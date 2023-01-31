@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6_4
+
+    </title>
+    <style>
+        div:first-child {
+            margin: 10px;
+            padding: 10px;
+            background: orange;
+            opacity: 0.4;
+        }
+        div:nth-child(2) {
+            margin: 10px;
+            padding: 10px;
+            background: rgba(255, 165, 0, 0.4);
+        }
+        a:link {
+            color: green;
+        }
+        a:visited {
+            color: red;
+        }
+        a:active{
+            color: orange;
+        }
+        a:hover {
+            background: pink;
+        }
+        ul {
+            list-style-type: none;
+        }
+        ul, li {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            display: inline-block;
+        }
+        li>a, li>a:link, li>a:visited, li>a:active{
+            padding: 10px 20px;
+            margin: 5px;
+            background: rgb(129, 49, 3);
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+        li>a:hover {
+            background-color: rgb(129, 82, 55);
+        }
+    </style>
+</head>
+<body>
+    <h2>Colors - opacity</h2>
+    <div>
+        <h3>Title</h3>
+    </div>
+    <div>
+        <h3>Title</h3>
+    </div>
+    <h2>Links</h2>
+    <p> target: _blank, _parent, _self, _top</p>
+    <p>a:link, :visited, :hover, :active</p>
+    <a href="about.html" target="_blank">About</a>
+    <a href="about.html" target="_parent">About</a>
+    <a href="about.html" target="_self">About</a>
+    <a href="about.html" target="_top">About</a>
+    <h2>nav menu</h2>
+    <div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
