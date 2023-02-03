@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6_5</title>
+    <style>
+        #inline {
+            background: red;
+            padding: 10px;
+            margin: 20px;
+            border: 1px solod green;
+        }
+        .inlineBlock {
+            display: inline-block;
+            padding: 10px;
+            margin: 20px;
+            width: 200px;
+            height: 100px;
+            border: 3px solid red;
+            background: green;
+        }
+        #flex>div>div {
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            margin: 5px;
+        }
+        #flex>div {
+            display: flex;
+        }
+        #inlineFlex>div>div {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            margin: 5px;
+        }
+        #inlineFlex>div {
+            display: inline-flex;
+        }
+        iframe{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <h2>inline elements</h2>
+    <p><b>padding</b>: top, right, bottom, left <b>margin</b>: left, right</p>
+    <p>Lorem ipsum dolor sit amet <span id="inline">consectetur adipisicing elit.</span> Culpa consequatur modi, unde iste ducimus ea nostrum, asperiores rem laudantium odit tempora enim amet non saepe perspiciatis, debitis porro alias id.</p>
+    <h2>inline-block elements</h2>
+    <p><b>paddin, margin, width, height, border</b></p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero suscipit deleniti laboriosam sapiente iure dicta exercitationem dolores excepturi consectetur.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <span class="inlineBlock">Aperiam odio unde corporis eveniet? Nam, accusantium id fugiat,</span> libero <span class="inlineBlock">et ipsam cum modi provident doloremque nulla ea nesciunt magnam harum dolore! </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facere omnis labore eveniet blanditiis! Distinctio dicta, placeat facilis itaque veritatis magnam quibusdam eos at odio vero quasi in. Sit, fuga?</p>
+    <h2>flex</h2>
+    <div id="flex">
+        <div>
+            flex container
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+        <div>
+            flex container
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+    </div>
+    <h2>inline flex</h2>
+    <div id="inlineFlex">
+        <div>
+            inline-flex container
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+        <div>
+            inline-flex container
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+    </div>
+    <h2>iframe</h2>
+    <p>frameborder="1" scrolling="no", overflow: hidden, width, height</p>
+    <iframe src="https://www.appworld.hu/" width="80%" height="300px" frameborder="1" scrolling="no"></iframe>
+    <p>load the content with a link (target):</p>
+    <iframe src="http://google.com" frameborder="0" name="iframeWithLink"></iframe>
+    <a href="https://www.appworld.hu/" target="iframeWithLink">Click here to load content into iframe</a>
+
+    <h2>reszponzitás</h2>
+    <p>reszponzitás feltétele a head-ben elhelyezett meta sor, ami a view port-ot eszköz szélességűvég és 1-szeres nagyításúvá teszi:</p>
+    <p><i>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</i></p>
+    <p>képek estén %-os szélesség megadása (pl. 20%):</p>
+    <img src="https://via.placeholder.com/300" width="20%" alt="kep">
+    <p>képeknél lehetséges még a &lt;picture&gt; elem használata többféle source és felbontás pár megadásával</p>
+    <p><b>media query használata</b></p>
+    <p>media type értékek: all(default), print, screen, speech</p>
+    <p>pl: csak felolvasó programoknak jelenik meg: @media speech and (max-width: 600px) {...}</p>
+    <p>the usage of <b>not</b>, <b>only</b>, <b>and</b> : <a href="https://www.w3schools.com/cssref/css3_pr_mediaquery.php">here</a></p>
+
+    <h2>kódolási tanácsok ...</h2>
+    <h2>html entities</h2>
+    <p>you can refer them with number and in certain cases with name</p>
+    <p>eg.: code example with &lt; and &gt;- &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+    <p>and some other examples: <span style="color: yellow;">&#9728</span>; , &#9762;, &#9999; , &#10853; &copy</p>
+
+</body>
+</html>
