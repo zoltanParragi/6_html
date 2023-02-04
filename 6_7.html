@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6_7</title>
+</head>
+
+<body>
+  <h2>validation, no validation(formnovalidate) with two buttons</h2>
+  <form action="" method="post">
+    <input type="email" name="email" required />
+    <button>Küldés validásással</button>
+    <button formnovalidate>Küld validálás nélkül</button>
+  </form>
+  <h2>sending data to two different server with two buttons (formaction)</h2>
+  <form action="" method="post">
+    <input type="email" name="email" />
+    <button>send to server 1</button>
+    <button formaction="http://google.com">send to "google"</button>
+  </form>
+  <h2>
+    sending data with get and post with two different buttons(formmethod)
+  </h2>
+  <p>possible html attributes on a button: formenctype, formtarget</p>
+  <form action="" method="post">
+    <input type="email" name="email" />
+    <button>send with post</button>
+    <button formmethod="get">send with get</button>
+  </form>
+  <h2>input outside of the form</h2>
+  <p>form: id="sth", input: form="sth"</p>
+  <form action="" id="myform">
+    <button>send</button>
+  </form>
+  <input type="email" name="email" form="myform" />
+
+  <h2>video (with controls)</h2>
+  <p>only width should be defined, height is calculated automatically</p>
+  <p>"autoplay" attribute is possible only with "muted" attribute</p>
+  <video src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" width="460px" controls
+    autoplay muted></video>
+
+  <h2>video with several sources</h2>
+  <p>the first suported format will appear in the browser</p>
+  <p>
+    if no source/type is supported then the text given after the sources will
+    appear
+  </p>
+  <video width="460px" controls>
+    <source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+    <!-- more sources can come here -->
+    Your browser does not support the media types.
+  </video>
+
+  <h2>audio</h2>
+  <p>35:38-tól</p>
+  <script>
+    const videos = [
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.jpg',
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4',
+      'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+    ]
+  </script>
+</body>
+
+</html>
