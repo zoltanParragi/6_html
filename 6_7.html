@@ -56,7 +56,24 @@
   </video>
 
   <h2>audio</h2>
-  <p>35:38-tól</p>
+  <p>"controls" attribute is needed, "autoplay muted" is possible but nonsense</p>
+  <p>with one src</p>
+  <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3"  type="audio/mpeg" controls></audio>
+  <p>with many sources</p>
+  <audio controls>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" type="audio/mpeg">
+    <!-- mor source here ... -->
+  </audio>
+
+  <h2>plugins</h2>
+  <p>A beépülő modulok - vagy más néven plugin-ek, olyan programok, amelyek kibővítik a böngészőnk alapértelmezett funkcióit.</p>
+  <p>"object", "embed" elements. (But the use of "iframe" is recommended insead of these.)</p>
+  <p>pdf, html, picture, ... files can be used in them</p>
+  <p>object (with pdf file):</p>
+  <object width="100%" height="300px" data="https://beltline.org/wp-content/uploads/2020/09/placeholder-pdf.pdf"></object>
+  <p>embed (with html file): (!no closing tag, !no "alt" attribute)</p>
+  <embed style="border: 1px solid black;" src="about.html" width="100%" height="300px" >
+
   <script>
     const videos = [
       'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
