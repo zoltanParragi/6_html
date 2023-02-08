@@ -57,17 +57,30 @@
   </video>
 
   <h2>audio</h2>
-  <p>"controls" attribute is needed, "autoplay muted" is possible but nonsense</p>
+  <p>"controls" attribute, "autoplay muted" is possible but nonsense</p>
   <p>with one src</p>
   <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3"  type="audio/mpeg" controls></audio>
   <p>with many sources</p>
   <audio controls>
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3" type="audio/mpeg">
-    <!-- mor source here ... -->
+    <!-- more source here ... -->
   </audio>
+  <h2>audio hidden to play action sound</h2>
+  <audio id="audio" src="audioSample.mp3"></audio>
+  <button id="btnForAudio">Hang jelzés</button>
+
+  <p>Other <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video" target="_blank">video</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLAudioElement" target="_blank">audio</a> methods.</p>
 
   <h2>plugins</h2>
   <p>A beépülő modulok - vagy más néven plugin-ek, olyan programok, amelyek kibővítik a böngészőnk alapértelmezett funkcióit.</p>
+
+  <p>iframe with youtube videos</p>
+  <p>You can define the video paramaters in the youtube link. Eg.: https://www.youtube.com/embed/ZkE2cFQTwJY?controls=0&autoplay=0&mute=1 </p>
+  <iframe src="https://www.youtube.com/embed/ZkE2cFQTwJY?controls=0&autoplay=0&mute=1" frameborder="0"></iframe>
+  <p>Or you can use the iframe link the youtube provides. (in some browsers allowfullscreen must be defined in two places. See in code.)</p>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/ZkE2cFQTwJY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share fullscreen" allowfullscreen></iframe>
+  <br>
+  <br>
   <p>"object", "embed" elements. (But the use of "iframe" is recommended insead of these.)</p>
   <p>pdf, html, picture, ... files can be used in them</p>
   <p>object (with pdf file):</p>
@@ -88,6 +101,12 @@
       'https://storage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4',
       'https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
     ]
+
+    document.querySelector('#btnForAudio').onclick = () => {
+      alert('ok')
+      document.querySelector('#audio').play();
+    }
+    
   </script>
 </body>
 
